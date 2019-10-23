@@ -1,9 +1,9 @@
- {% extends "blog/base.html"%}
+ {% extends "blog/base.html"%}{% block title %} Archive {% endblock %} {% block content %}
+<br>
 <h2>All Posts</h2>
-{% block content %}
 <br> {% for blog in blogs %}
 <p>{{forloop.counter}}. <a href="{% url 'detail' blog.id %}">{{blog.title}}</a> created on {{blog.date_created}}</p>
-<br> {% empty %} No blog posts available
+{% empty %} No blog posts available
 <br> {% endfor %}
 <br> {% endblock %}
 <br>

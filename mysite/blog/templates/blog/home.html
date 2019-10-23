@@ -1,6 +1,6 @@
-{% extends "blog/base.html"%}
+{% extends "blog/base.html"%} {% block title %} Home {% endblock %}{% block content %}
+<br>
 <h2>Recent Posts</h2>
-{% block content %}
 <br> {% for blog in blogs %}
 <h3><a href="{% url 'detail' blog.id %}">{{blog.title|title}}</a></h3>
 <p>{{blog.date_created}}</p>
