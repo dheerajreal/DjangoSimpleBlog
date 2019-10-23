@@ -1,6 +1,10 @@
-{% extends "blog/base.html"%} {% block content %}
+{% extends "blog/base.html"%}
+<h2>Recent Posts</h2>
+{% block content %}
 <br> {% for blog in blogs %}
-<br> {{blog.title}}
-<br> {% empty %} No blog posts available {% endfor %}
+<h3>{{blog.title}}</h3>
+<p>{{blog.date_created}}</p>
+<br> {% empty %} No blog posts available
+<br> {% endfor %}
 <br> {% endblock %}
 <br>
