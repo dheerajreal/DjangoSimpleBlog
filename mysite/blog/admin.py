@@ -6,7 +6,7 @@ from .models import BlogPost
 admin.site.index_title = "Blog admin"
 admin.site.site_header = "Blog admin"
 admin.site.site_title = "Blog admin"
-admin.site.site_url = "/blog"
+admin.site.site_url = "/"
 
 class BlogPostAdmin(admin.ModelAdmin):
     # things to on admin page
