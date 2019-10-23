@@ -1,4 +1,7 @@
 {% extends "blog/base.html"%} {% block content %}
 <br>
-<h2>Detail</h2>
+<h2>{{blog.title|title}}</h2>
+<p>Published on {{blog.date_created}}</p>
+<p>{{blog.content}}</p>
+
 <br> {% endblock %}

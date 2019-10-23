@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render ,get_object_or_404
 # from django.http import HttpResponse
 from .models import BlogPost
 # Create your views here.
@@ -13,7 +13,11 @@ def index(request):
 
 
 def detail(request, number):
-    return render(request, "blog/detail.html")
+    blog = get_object_or_404(BlogPost,pk=number)
+    context={
+        "blog":blog
+    }
+    return render(request, "blog/detail.html",context)
 
 
 def archive(request):
