@@ -1,1 +1,6 @@
-{% extends "blog/base.html"%} {% block content %} home {% endblock %}
+{% extends "blog/base.html"%} {% block content %}
+<br> {% for blog in blogs %}
+<br> {{blog.title}}
+<br> {% empty %} No blog posts available {% endfor %}
+<br> {% endblock %}
+<br>

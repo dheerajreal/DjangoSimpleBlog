@@ -1,10 +1,16 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .models import BlogPost
 # Create your views here.
 
 
 def index(request):
-    return render(request,"blog/home.html")
+
+    blogs=BlogPost.objects.order_by('-date_created')
+    context={
+        "blogs":blogs,
+        }
+    return render(request,"blog/home.html",context)
 
 
 def detail(request,number):
