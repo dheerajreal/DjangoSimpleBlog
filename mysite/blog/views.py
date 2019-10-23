@@ -4,7 +4,7 @@ from django.http import HttpResponse
 
 
 def index(request):
-    return HttpResponse("INDEX")
+    return render(request,"blog/home.html")
 
 
 def detail(request,number):
