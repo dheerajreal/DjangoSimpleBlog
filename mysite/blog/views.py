@@ -5,8 +5,7 @@ from .models import BlogPost
 
 
 def index(request):
-
-    blogs = BlogPost.objects.order_by('-date_created')
+    blogs = BlogPost.objects.order_by('-date_created')[:5]
     context = {
         "blogs": blogs,
     }
@@ -18,7 +17,11 @@ def detail(request, number):
 
 
 def archive(request):
-    return render(request, "blog/archive.html")
+    blogs = BlogPost.objects.order_by('-date_created')
+    context = {
+        "blogs": blogs,
+    }
+    return render(request, "blog/archive.html",context)
 
 
 def contact(request):
