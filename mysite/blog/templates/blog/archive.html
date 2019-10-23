@@ -2,7 +2,7 @@
 <h2>All Posts</h2>
 {% block content %}
 <br> {% for blog in blogs %}
-<p>{{forloop.counter}}. {{blog.title}} created on {{blog.date_created}}</p>
+<p>{{forloop.counter}}. <a href="{% url 'detail' blog.id %}">{{blog.title}}</a> created on {{blog.date_created}}</p>
 <br> {% empty %} No blog posts available
 <br> {% endfor %}
 <br> {% endblock %}
