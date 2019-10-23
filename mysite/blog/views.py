@@ -21,8 +21,8 @@ def archive(request):
     return HttpResponse("ARCHIVE")
 
 def contact(request):
-    return HttpResponse("CONTACT")
+    return render(request,"blog/contact.html")
 
 
 def about(request):
-    return HttpResponse("ABOUT")
+    return render(request,"blog/about.html")
