@@ -1,7 +1,12 @@
 {% extends "blog/base.html"%} {% block title %} {{blog.title|title}} {% endblock %}{% block content %}
 <br>
 <h2>{{blog.title|title}}</h2>
-<p>Published on {{blog.date_created}}</p>
+
+{% if blog.date_updated|date:"SHORT_DATETIME_FORMAT" == blog.date_created|date:"SHORT_DATETIME_FORMAT" %}
+<p>Published on {{blog.date_created }}</p>
+{% else %}
+<p>Updated on {{blog.date_updated}}</p>
+{% endif %}
 <br> {{blog.content|linebreaks}}
 
 <br> {% endblock %}
