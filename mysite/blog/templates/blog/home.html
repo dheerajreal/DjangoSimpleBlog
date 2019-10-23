@@ -1,5 +1,10 @@
 {% extends "blog/base.html"%} {% block title %} Home {% endblock %}{% block content %}
 <br>
+<div class="jumbotron ">
+    <h1>Welcome to Blog</h1>
+    <p>Description of blog</p>
+</div>
+<br>
 <h2>Recent Posts</h2>
 <br> {% for blog in blogs %}
 <h3><a href="{% url 'detail' blog.id %}">{{blog.title|title}}</a></h3>
