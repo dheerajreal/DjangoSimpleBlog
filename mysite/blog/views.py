@@ -1,6 +1,7 @@
 from django.shortcuts import render ,get_object_or_404
 # from django.http import HttpResponse
 from .models import BlogPost
+from .forms import ContactForm
 # Create your views here.
 
 
@@ -31,7 +32,17 @@ def archive(request):
 
 
 def contact(request):
-    return render(request, "blog/contact.html")
+    form = ContactForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        context = {
+            "message": "Submitted Successfully",
+        }
+        return render(request, "blog/contact.html", context)
+    context = {
+        "form": form,
+    }
+    return render(request, "blog/contact.html", context)
 
 
 def about(request):
