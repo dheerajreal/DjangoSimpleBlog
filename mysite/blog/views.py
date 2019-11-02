@@ -12,7 +12,9 @@ def index(request):
     return render(request, "blog/home.html", context)
 
 
-def detail(request, number):
+def detail(request, number,slug=None):
+    # the slug isn't used for lookup
+    # slugfield is only for SEO-friendly URLs
     blog = get_object_or_404(BlogPost,pk=number)
     context={
         "blog":blog
