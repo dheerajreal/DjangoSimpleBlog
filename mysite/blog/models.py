@@ -16,3 +16,17 @@ class BlogPost(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class ContactFormEntry(models.Model):
+    name = models.CharField(max_length=256)
+    email = models.EmailField()
+    message = models.TextField()
+    date_created = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.email
+
+    class Meta:
+        verbose_name = "Contact Form Received "
+        verbose_name_plural = "Contact Forms Received "
