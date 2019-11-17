@@ -20,11 +20,10 @@ class BlogPostAdmin(admin.ModelAdmin):
 
 class ContactFormEntryAdmin(admin.ModelAdmin):
     # things to on admin page
-    list_display = ("name", "email", "message")
+    list_display = ("name", "email", "message", "date_created")
     # can filter by date_created
     list_filter = ["date_created"]
-    
 
 
 admin.site.register(BlogPost, BlogPostAdmin)
-admin.site.register(ContactFormEntry,ContactFormEntryAdmin)
+admin.site.register(ContactFormEntry, ContactFormEntryAdmin)
