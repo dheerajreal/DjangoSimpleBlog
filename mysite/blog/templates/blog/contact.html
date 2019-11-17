@@ -10,6 +10,9 @@
 </form>
 <br> {% endif %} {% if message %}
 <div class="jumbotron bg-white"></div>
-<h3 class="jumbotron bg-white text-success">{{ message }}</h3>
+<h3>
+    <span class=" text-success">{{ message }}</span>
+    <a href="{% url 'index' %}">Goto homepage</a>
+</h3>
 <div class="jumbotron bg-white"></div>
 {% endif %} {% endblock %}

@@ -4,6 +4,6 @@
 <br> {% for blog in blogs %}
 <p>{{forloop.counter}}. <a href="{% url 'detail' blog.id blog.slug %}">{{blog.title}}</a> created on {{blog.date_created}}</p>
 {% empty %} No blog posts available
-<br> {% endfor %}
+<br> {% endfor %} {% include "blog/components/pagination.html"%}
 <br> {% endblock %}
 <br>
