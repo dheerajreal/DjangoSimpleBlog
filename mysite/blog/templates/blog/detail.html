@@ -3,9 +3,9 @@
 <h2>{{blog.title|title}}</h2>
 
 {% if blog.date_updated|date:"SHORT_DATETIME_FORMAT" == blog.date_created|date:"SHORT_DATETIME_FORMAT" %}
-<p>Published on {{blog.date_created }}</p>
+<p>Published {{blog.date_created |timesince}} ago</p>
 {% else %}
-<p>Updated on {{blog.date_updated}}</p>
+<p>Updated {{blog.date_updated |timesince}} ago</p>
 {% endif %}
 <br> {{blog.content|linebreaks}}
 
