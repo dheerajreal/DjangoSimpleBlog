@@ -1,21 +1,4 @@
 {% if blogs.has_other_pages %}
-<ul class="pagination">
-    {% if blogs.has_previous %}
-    <li class="btn-sm"><a href="?page={{ blogs.previous_page_number }}">&laquo;</a></li>
-    {% else %}
-    <li class="disabled btn-sm"><span>&laquo;</span></li>
-    {% endif %} {% for i in blogs.paginator.page_range %} {% if blogs.number == i %}
-    <li class="active btn-sm"><span>{{ i }} <span class="sr-only">(current)</span></span>
-    </li>
-    {% else %}
-    <li class="btn-sm"><a href="?page={{ i }}">{{ i }}</a></li>
-    {% endif %} {% endfor %} {% if blogs.has_next %}
-    <li class="btn-sm"><a href="?page={{ blogs.next_page_number }}">&raquo;</a></li>
-    {% else %}
-    <li class="disabled btn-sm"><span>&raquo;</span></li>
-    {% endif %}
-</ul>
-{% endif %}
 <div class="pagination ">
     <span class="step-links">
             {% if blogs.has_previous %}
@@ -24,9 +7,10 @@
             {% endif %}
     
             <span class="btn-sm">
-                Page {{ blogs.number }} of {{ blogs.paginator.num_pages }}.
+                Page {{ blogs.number }} of {{ blogs.paginator.num_pages }}
             </span> {% if blogs.has_next %}
     <a class="btn-sm" href="?page={{ blogs.next_page_number }}">next</a>
     <a class="btn-sm" href="?page={{ blogs.paginator.num_pages }}">last &raquo;</a> {% endif %}
     </span>
 </div>
+{% endif %}
