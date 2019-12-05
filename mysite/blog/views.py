@@ -22,7 +22,7 @@ def detail(request, number, slug=None):
     if comment_form.is_valid():
         comment_form.instance.on_post = blog
         comment_form.save()
-        comment_form = Comment()
+        comment_form = CommentForm()
     comments = Comment.objects.order_by('-date_created').filter(on_post=blog)
     context = {
         "blog": blog,
