@@ -18,6 +18,17 @@ class BlogPost(models.Model):
         return self.title
 
 
+class Comment(models.Model):
+    on_post = models.ForeignKey(BlogPost, on_delete=models.CASCADE)
+    name = models.CharField(max_length=256)
+    email = models.EmailField()
+    comment = models.TextField()
+    date_created = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.comment
+
+
 class ContactFormEntry(models.Model):
     name = models.CharField(max_length=256)
     email = models.EmailField()
