@@ -1,15 +1,15 @@
 {% extends "blog/base.html"%} {% block title %} {{blog.title|title}} {% endblock %}{% block content %}
 <br>
-<h2>{{blog.title|title}}</h2>
 
-{% if blog.date_updated|date:"SHORT_DATETIME_FORMAT" == blog.date_created|date:"SHORT_DATETIME_FORMAT" %}
-<p>Published {{blog.date_created |timesince}} ago</p>
-{% else %}
-<p>Updated {{blog.date_updated |timesince}} ago</p>
-{% endif %}
-<br>
 <article class="container">
-    {{blog.content|linebreaks}}
+    <h2>{{blog.title|title}}</h2>
+
+    {% if blog.date_updated|date:"SHORT_DATETIME_FORMAT" == blog.date_created|date:"SHORT_DATETIME_FORMAT" %}
+    <p>Published {{blog.date_created |timesince}} ago</p>
+    {% else %}
+    <p>Updated {{blog.date_updated |timesince}} ago</p>
+    {% endif %}
+    <br> {{blog.content|linebreaks}}
 
 </article>
 
