@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import BlogPost, ContactFormEntry
+from .models import BlogPost, ContactFormEntry, Comment
 # Register your models here.
 
 # change admin interface
@@ -9,6 +9,14 @@ admin.site.site_title = "Blog admin"
 admin.site.site_url = "/"
 
 
+class CommentInline(admin.TabularInline):
+    model = Comment
+    readonly_fields = ['comment', 'name', 'date_created', ]
+    exclude = ["email"]
+    verbose_name = "comment"
+    extra = 0
+
+
 class BlogPostAdmin(admin.ModelAdmin):
     # things to on admin page
     list_display = ("title", "date_created", "date_updated")
@@ -16,6 +24,7 @@ class BlogPostAdmin(admin.ModelAdmin):
     list_filter = ["date_created"]
     # allow search
     search_fields = ["title", "content"]
+    inlines = [CommentInline, ]
 
 
 class ContactFormEntryAdmin(admin.ModelAdmin):
@@ -25,5 +34,6 @@ class ContactFormEntryAdmin(admin.ModelAdmin):
     list_filter = ["date_created"]
 
 
+# admin.site.register(Comment)
 admin.site.register(BlogPost, BlogPostAdmin)
 admin.site.register(ContactFormEntry, ContactFormEntryAdmin)
