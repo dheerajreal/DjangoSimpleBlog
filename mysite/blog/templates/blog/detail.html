@@ -7,6 +7,30 @@
 {% else %}
 <p>Updated {{blog.date_updated |timesince}} ago</p>
 {% endif %}
-<br> {{blog.content|linebreaks}}
+<br>
+<article class="container">
+    {{blog.content|linebreaks}}
 
+</article>
+
+<br>
+<hr>
+<form action="" method="post">
+    <div class="card mx-auto ">
+        <div class="card-body">
+            <h4 class="card-title">Post a comment</h4>
+            {% csrf_token %} {{comment_form.as_p}}
+            <button type="submit" class="btn btn-primary btn-sm">Submit</button>
+        </div>
+    </div>
+</form>
+<br> {% for comment in comments %}
+<br>
+<div class="card mx-auto">
+    <div class="card-body">
+        <p>{{comment.name}} commented {{comment.date_created|timesince}} ago</p>
+        <p> {{comment.comment}}</p>
+    </div>
+</div>
+{% endfor %}
 <br> {% endblock %}

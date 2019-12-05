@@ -1,8 +1,8 @@
 from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 # from django.http import HttpResponse
-from .models import BlogPost
-from .forms import ContactForm
+from .models import BlogPost, Comment
+from .forms import ContactForm, CommentForm
 # Create your views here.
 
 
@@ -18,8 +18,16 @@ def detail(request, number, slug=None):
     # the slug isn't used for lookup
     # slugfield is only for SEO-friendly URLs
     blog = get_object_or_404(BlogPost, pk=number)
+    comment_form = CommentForm(request.POST or None)
+    if comment_form.is_valid():
+        comment_form.instance.on_post = blog
+        comment_form.save()
+        comment_form = Comment()
+    comments = Comment.objects.order_by('-date_created').filter(on_post=blog)
     context = {
-        "blog": blog
+        "blog": blog,
+        "comments": comments,
+        "comment_form": comment_form
     }
     return render(request, "blog/detail.html", context)
 
