@@ -1,3 +1,8 @@
 a {
     color: teal;
 }
+
+a:hover {
+    text-decoration: none;
+    color: red;
+}

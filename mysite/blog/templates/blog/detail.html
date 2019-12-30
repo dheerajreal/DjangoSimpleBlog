@@ -18,7 +18,7 @@
 <form action="" method="post">
     <div class="card mx-auto ">
         <div class="card-body">
-            <h4 class="card-title">Post a comment</h4>
+            <h5 class="card-title">Post a comment</h5>
             {% csrf_token %} {{comment_form.as_p}}
             <button type="submit" class="btn btn-primary btn-sm">Submit</button>
         </div>
