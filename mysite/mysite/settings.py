@@ -31,6 +31,9 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    # admin customize https://github.com/douglasmiranda/django-admin-bootstrap
+    'bootstrap_admin',
+
 
     'django.contrib.admin',
     'django.contrib.auth',
