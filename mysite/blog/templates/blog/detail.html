@@ -1,4 +1,4 @@
-{% extends "blog/base.html"%} {% block title %} {{blog.title|title}} {% endblock %}{% block content %}
+ {% extends "blog/base.html"%}{% load markdown_deux_tags %} {% block title %} {{blog.title|title}} {% endblock %}{% block content %}
 <br>
 
 <article class="container">
@@ -9,7 +9,7 @@
     {% else %}
     <p>Updated {{blog.date_updated |timesince}} ago</p>
     {% endif %}
-    <br> {{blog.content|linebreaks}}
+    <br> {{blog.content|markdown}}
 
 </article>
 

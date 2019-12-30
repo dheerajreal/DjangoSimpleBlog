@@ -1,6 +1,7 @@
 from django.contrib import admin
 from .models import BlogPost, ContactFormEntry, Comment
-# Register your models here.
+from django.db import models
+from pagedown.widgets import AdminPagedownWidget
 
 # change admin interface
 admin.site.index_title = "Blog admin"
@@ -18,6 +19,9 @@ class CommentInline(admin.TabularInline):
 
 
 class BlogPostAdmin(admin.ModelAdmin):
+    formfield_overrides = {
+        models.TextField: {'widget': AdminPagedownWidget},
+    }
     # things to on admin page
     list_display = ("title", "date_created", "date_updated")
     # can filter by date_created
