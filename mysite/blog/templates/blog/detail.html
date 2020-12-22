@@ -1,4 +1,9 @@
- {% extends "blog/base.html"%}{% load markdown_deux_tags %} {% block title %} {{blog.title|title}} {% endblock %}{% block content %}
+{% extends "blog/base.html"%}
+{% load markdown_deux_tags %}
+{% block title %}
+{{blog.title|title}}
+{% endblock %}
+{% block content %}
 <br>
 
 <article class="container">
@@ -15,15 +20,14 @@
 
 <br>
 <hr>
-<form action="" method="post">
-    <div class="card mx-auto ">
-        <div class="card-body">
-            <h5 class="card-title">Post a comment</h5>
-            {% csrf_token %} {{comment_form.as_p}}
-            <button type="submit" class="btn btn-primary btn-sm">Submit</button>
-        </div>
-    </div>
-</form>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#exampleModal">
+    Post a comment
+</button>
+
+<br>
+<p>Comments</p>
+<hr />
 <br> {% for comment in comments %}
 <br>
 <div class="card mx-auto">
@@ -33,4 +37,32 @@
     </div>
 </div>
 {% endfor %}
-<br> {% endblock %}
+<br>
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+            <div class="modal-body">
+                <form action="" method="post">
+                    <div class="card mx-auto ">
+                        <div class="card-body">
+                            <h5 class="card-title">Post a comment</h5>
+                            {% csrf_token %} {{comment_form.as_p}}
+                            <button type="submit" class="btn btn-primary btn-sm">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
