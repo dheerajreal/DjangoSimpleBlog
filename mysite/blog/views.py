@@ -1,8 +1,10 @@
-from django.shortcuts import render, get_object_or_404
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
+from django.shortcuts import get_object_or_404, render
+
+from .forms import CommentForm, ContactForm
 # from django.http import HttpResponse
 from .models import BlogPost, Comment
-from .forms import ContactForm, CommentForm
+
 # Create your views here.
 
 
