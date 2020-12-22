@@ -1,3 +1,6 @@
 Django==2.2.6
 gunicorn
 whitenoise
+django-pagedown
+django-markdown-deux
+bootstrap-admin
