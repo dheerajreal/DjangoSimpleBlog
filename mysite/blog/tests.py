@@ -1,7 +1,9 @@
-from django.test import TestCase
-from .models import BlogPost
 from django.contrib.auth import get_user_model
+from django.test import TestCase
 from django.urls import reverse
+
+from .models import BlogPost
+
 
 class ResponseCodeTest(TestCase):
     def test_home_page_response_code(self):

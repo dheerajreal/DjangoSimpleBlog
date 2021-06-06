@@ -1,7 +1,8 @@
 from django.contrib import admin
-from .models import BlogPost, ContactFormEntry, Comment
 from django.db import models
 from pagedown.widgets import AdminPagedownWidget
+
+from .models import BlogPost, Comment, ContactFormEntry
 
 # change admin interface
 admin.site.index_title = "Blog admin"
